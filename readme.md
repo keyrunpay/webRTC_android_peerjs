@@ -2,6 +2,6 @@
 # voice control app
 
 #Author
-Kiran Neupane \n
-Kathmandu University \n
-BSc Computer Science \n
+Kiran Neupane <br>
+Kathmandu University <br>
+BSc Computer Science <br>
