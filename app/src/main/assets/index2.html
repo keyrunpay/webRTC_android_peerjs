@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/0.3.16/peer.min.js"></script>
+
+    <style>
+        *{
+            margin:0;
+        }
+        body{
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background: #000
+        }
+        #notMyVideo{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 2;
+            object-fit: contain;
+            display: none;
+        }
+        #myVideo{
+            position: absolute;
+            z-index: 3;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: 30vh;
+            object-fit: contain;
+            display: none;
+        }
+        .controls{
+            position: absolute;
+            z-index: 4;
+            top:50px;
+            left:40px;
+            display:none;
+        }
+        #connect{
+            position: absolute;
+            z-index: 1;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            padding:10px; 
+        }
+
+        #connect h1{
+            font-size: 18px;
+            color: #f2f2f2;
+        }
+
+        .abort{
+            position: absolute;
+            left:20px;
+            bottom: 20px;
+            width:50px;
+            height:50px;
+            border-radius: 50%;
+            color:#f2f2f2;
+            text-align: center;
+            background:green;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .abort p{
+            margin-top:10px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <video height="240" muted id="myVideo"></video>
+    <video id="notMyVideo"></video>
+    <div class="controls">
+            <input type="text" name="id" id="otherid" placeholder="Target User ID">
+            <button onclick="call();">Call</button>
+            <button onclick="answer();">Answer</button>
+    </div>
+    <div id="connect">
+        <h1 id="status">Registering on network ..</h1>
+    </div>
+    <div class="abort" onclick="closePeer();">
+        <p>X</p>
+    </div>
+    <script>
+        var peer = new Peer('itmeetv8hack404444', {key: 'myapikey'});
+        var myVideo = false;
+        var conn;
+        var myID = "";
+
+        peer.on('open', function (id) {
+            document.getElementById("otherid").value='itmeetv8hack';
+            document.getElementById("status").innerHTML="Connected to network.. ";
+            // call();
+        });
+
+        navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+ 
+        function call(){
+            navigator.getMedia({ video: true, audio: true }, function (stream) {
+                if (!myVideo) {
+                    document.getElementById("myVideo").srcObject = stream;
+                    document.getElementById("myVideo").play();
+                    myVideo = true;
+                }
+                var peerID = document.getElementById("otherid").value;
+                var call = peer.call(peerID, stream);
+                call.on('stream', function (remoteStream) {
+                    document.getElementById("notMyVideo").style.display='block';
+                    document.getElementById("myVideo").style.display='block';
+                    document.getElementById("notMyVideo").srcObject = remoteStream;
+                    document.getElementById("notMyVideo").play();
+                });
+            }, function (err) {
+                console.log('Failed to get local stream', err);
+            });
+        }
+
+        peer.on('call', function (call) {
+            console.log(call.peer);
+            conn = call;
+            navigator.getMedia({ video: true, audio: true }, function (stream) {
+                if (!myVideo) {
+                    document.getElementById("myVideo").srcObject = stream;
+                    document.getElementById("myVideo").play();
+                    myVideo = true;
+                }
+                call.answer(stream); // Answer the call with an A/V stream.
+                call.on('stream', function (remoteStream) {
+                    document.getElementById("notMyVideo").style.display='block';
+                    document.getElementById("myVideo").style.display='block';
+                    document.getElementById("notMyVideo").srcObject = remoteStream;
+                    document.getElementById("notMyVideo").play();
+                });
+                call.on("close",function(data){
+                    console.log("call_disconnected_volunteer");
+                });
+            }, function (err) {
+                console.log('Failed to get local stream', err);
+            });
+        });
+
+        function closePeer(){
+            if (conn) {
+                conn.close();
+                console.log("call_aborted_volunteer");
+            }
+        }
+        
+
+    </script>
+</body>
+</html>

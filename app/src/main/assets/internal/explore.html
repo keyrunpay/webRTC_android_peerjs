@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Explore</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <br>
+    <div class="loader circular--loader" id="homeLoader"></div>
+    <div class="container" id="mainPage">
+        <h1 class="title">Explore Travel Information</h1>
+    <div class="grid_home">
+        <div class="item" onclick="console.log('explore_clicked_mount_everest')">
+            <img src="../img/himalayas.jpg" alt="">
+            <div class="desc">
+                <h3 class="item_name">Mt Everest</h3>
+                <p class="home_desc">15 days trip.</p>
+                <p class="home_learn_more">Learn More</p>
+            </div>
+        </div>        
+        <div class="item" onclick="console.log('explore_clicked_langtang')">
+            <img src="../img/langtang.jpg" alt="">
+            <div class="desc">
+                <h3 class="item_name">Langtang District</h3>
+                <p class="home_desc">10 days trip.</p>
+                <p class="home_learn_more">Learn More</p>
+            </div>
+        </div> 
+    </div>
+</div>
+    <script>
+        setTimeout(()=>{
+            document.getElementById('mainPage').style.display='block';
+            document.getElementById('homeLoader').style.display='none';
+        },500);
+    </script>
+</body>
+</html>

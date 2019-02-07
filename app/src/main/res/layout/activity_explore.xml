@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExploreActivity">
+
+    <include layout="@layout/toolbar"
+        />
+
+    <WebView
+        android:id="@+id/wb1"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_height="match_parent">
+
+    </WebView>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/btmNavView"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:menu="@menu/memu_menu"
+        app:itemTextColor="@drawable/btnnavcolor"
+        app:itemIconTint="@drawable/btnnavcolor"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_alignParentBottom="true">
+
+
+    </android.support.design.widget.BottomNavigationView>
+
+</RelativeLayout>

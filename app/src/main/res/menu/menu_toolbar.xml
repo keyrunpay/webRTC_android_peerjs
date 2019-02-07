@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:title="Ask For Help"
+        android:id="@+id/menu_help"
+        android:icon="@drawable/ic_help"
+        app:showAsAction="always"
+        />
+    <item
+        android:title="Become a guide"
+        android:id="@+id/btnMenuBeGuide"
+        app:showAsAction="never"
+        />
+    <item
+        android:title="Become a volunteer"
+        android:id="@+id/btnMenuBeVolunteer"
+        app:showAsAction="never"
+        />
+    <item
+        android:title="Connect to Volunteer"
+        android:id="@+id/btnMenuConnectVolunteer"
+        app:showAsAction="never"
+        />
+    <item
+        android:title="Connect to guide"
+        android:id="@+id/btnMenuConnectGuide"
+        app:showAsAction="never"
+        />
+</menu>

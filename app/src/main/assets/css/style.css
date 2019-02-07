@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+* {
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.loader {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(50% - 35px);
+}
+
+.circular--loader {
+  border: 10px solid #ddd;
+  width: 50px;
+  height: 50px;
+  border-top-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  -webkit-animation: CircularLoader 1s ease infinite;
+          animation: CircularLoader 1s ease infinite;
+}
+
+@-webkit-keyframes CircularLoader {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes CircularLoader {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.grid_home {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(38vw, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(38vw, 1fr));
+  grid-gap: 3vw;
+  padding: 10px 0;
+}
+
+.grid_home .item {
+  border: 1px solid #d9d9d9;
+}
+
+.grid_home .item .desc {
+  padding: 3px 7px;
+}
+
+.grid_home .item .desc h3 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.grid_home .item .desc p {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.grid_home img {
+  width: 100%;
+  height: calc(100% / 1.5);
+}
+
+.grid_home .home_learn_more {
+  padding-top: 8px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: #007d9e !important;
+}
+
+#mainPage {
+  display: none;
+}
+
+.heading_image img {
+  width: 100vw;
+  height: auto;
+}
+
+.descMore {
+  padding: 3px 0;
+}
+
+.descMore h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 25px 0 10px 0;
+}
+
+.descMore p {
+  margin: 10px 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: justify;
+}
+
+.descMore ul li {
+  margin: 10px 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.card {
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  margin: 8px 0;
+}
+
+.card .grid_leaderboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px auto;
+      grid-template-columns: 100px auto;
+  grid-gap: 20px;
+}
+
+.card .grid_leaderboard img {
+  padding: 15px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.card .grid_leaderboard .right h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 15px 0 8px 0;
+}
+
+.card .grid_leaderboard .right p {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: justify;
+}
+/*# sourceMappingURL=style.css.map */
